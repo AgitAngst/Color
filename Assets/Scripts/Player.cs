@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
     void Start() {
         setRandomColor();
         audioSource = GetComponent<AudioSource>();
-        Camera.audioMusic.volume = SaveLoad.currentMusicVolume;
+        //Camera.audioMusic.volume = SaveLoad.currentMusicVolume;   #TODO SAVE MUSIC VOLUME
         Load();
         maxScore = SaveLoad.currentScore;
         maxScoreText.text = "Record: " + maxScore.ToString();
