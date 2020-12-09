@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using Shapes;
+using DG.Tweening;
 
 public class Player : MonoBehaviour {
     [SerializeField] string currentColor;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D Circle;
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] Disc playerColor;
     public Color blue;
     public Color yellow;
     public Color pink;
@@ -77,7 +79,7 @@ public class Player : MonoBehaviour {
             Scores(5);
             scoreText.text = "Score: " + score.ToString();
             audioSource.PlayOneShot(sound, 1f);
-
+            transform.DOScale(3f, .1f).SetEase(Ease.InOutBounce).SetLoops(2, LoopType.Yoyo);
             Destroy(collision.gameObject);
 
             return;
@@ -118,19 +120,19 @@ public class Player : MonoBehaviour {
         {
             case 0:
                 currentColor = "Blue";
-                sr.color = blue;
+                playerColor.Color = blue;
                 break;
             case 1:
                 currentColor = "Yellow";
-                sr.color = yellow;
+                playerColor.Color = yellow;
                 break;
             case 2:
                 currentColor = "Pink";
-                sr.color = pink;
+                playerColor.Color = pink;
                 break;
             case 3:
                 currentColor = "Purple";
-                sr.color = purple;
+                playerColor.Color = purple;
                 break;
         }
 
