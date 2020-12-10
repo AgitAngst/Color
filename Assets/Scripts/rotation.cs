@@ -6,9 +6,15 @@ public class rotation : MonoBehaviour {
 
     [Range(0,1000)][SerializeField] float rotationSpeed = 100f;
     public bool rotateRight = true;
+
     float period = 2f;
-    
-	void Update () {
+
+    private void Start()
+    {
+       
+    }
+
+    void Update () {
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,7 +41,7 @@ public class rotation : MonoBehaviour {
         }
 
     }
-
+   
     void ChangeRotation()
     {
         if (period <= Mathf.Epsilon) return;

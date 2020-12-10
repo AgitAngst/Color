@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 4107469383060666}
   - component: {fileID: 58062574776665758}
   - component: {fileID: 50628205682191242}
+  - component: {fileID: 5934026195892842816}
   m_Layer: 0
   m_Name: 4 Arcs
   m_TagString: Score
@@ -601,6 +602,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5934026195892842816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972640191689866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b883fe2fc6a7b34ca8211337c1cbffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  rotateRight: 1
 --- !u!1 &771565062900631824
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +628,6 @@ GameObject:
   - component: {fileID: 737260983819799915}
   - component: {fileID: 3869525884829379224}
   - component: {fileID: 3941709940267563302}
-  - component: {fileID: 8205031521529939673}
   m_Layer: 0
   m_Name: Cyan
   m_TagString: Untagged
@@ -661,7 +675,7 @@ MonoBehaviour:
   geometry: 0
   angUnitInput: 1
   angRadiansStart: 0
-  angRadiansEnd: 5.7595863
+  angRadiansEnd: 5.67232
   radius: 1.05
   radiusSpace: 0
   thickness: 0.11
@@ -725,19 +739,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8205031521529939673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771565062900631824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afca5cc12c03614b9af1200ccbc1fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateLeft: 0
 --- !u!1 &2975888955251441474
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +751,6 @@ GameObject:
   - component: {fileID: 8798368389445196353}
   - component: {fileID: 8600183259871728941}
   - component: {fileID: 5003944293639693359}
-  - component: {fileID: 2681547272245477089}
   m_Layer: 0
   m_Name: Pink
   m_TagString: Untagged
@@ -862,19 +862,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2681547272245477089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2975888955251441474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afca5cc12c03614b9af1200ccbc1fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateLeft: 1
 --- !u!1 &3445854301317485699
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +908,6 @@ GameObject:
   - component: {fileID: 4572011990991107610}
   - component: {fileID: 8111373428586871114}
   - component: {fileID: 7802234523378669634}
-  - component: {fileID: 1494285672117312779}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -969,7 +955,7 @@ MonoBehaviour:
   geometry: 0
   angUnitInput: 1
   angRadiansStart: 0
-  angRadiansEnd: 5.497787
+  angRadiansEnd: 5.67232
   radius: 1.5
   radiusSpace: 0
   thickness: 0.11
@@ -1033,19 +1019,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1494285672117312779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692678405612009221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afca5cc12c03614b9af1200ccbc1fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateLeft: 0
 --- !u!1 &9166500626961627460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1031,6 @@ GameObject:
   - component: {fileID: 3890222844001074610}
   - component: {fileID: 4654597269044757954}
   - component: {fileID: 5336180301138459112}
-  - component: {fileID: 464614602036981984}
   m_Layer: 0
   m_Name: Violet
   m_TagString: Untagged
@@ -1106,7 +1078,7 @@ MonoBehaviour:
   geometry: 0
   angUnitInput: 1
   angRadiansStart: 0
-  angRadiansEnd: 5.5850534
+  angRadiansEnd: 5.67232
   radius: 1.35
   radiusSpace: 0
   thickness: 0.11
@@ -1170,16 +1142,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &464614602036981984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166500626961627460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3afca5cc12c03614b9af1200ccbc1fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotateLeft: 1

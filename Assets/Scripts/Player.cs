@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
     [SerializeField] Text maxScoreText;
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject currentObstacle;
+    GameObject previousObstacle;
+
     [SerializeField] GameObject colorChanger;
     [SerializeField] float distance = 4f;
     private rotation rotm;
@@ -83,14 +85,15 @@ public class Player : MonoBehaviour {
             audioSource.PlayOneShot(sound, 1f);
             transform.DOShakeScale(0.8f, 1, 10, 90, true);
             transform.DOScaleX(2f,0.001f);
+            previousObstacle.transform.DOShakeRotation(0.3f, 90, 10, 0, true);
             Destroy(collision.gameObject);
 
             return;
         }
         if (collision.tag == "Score")
         {
+            previousObstacle = collision.gameObject;
             Scores(1);
-
 
             collision.GetComponent<CircleCollider2D>().enabled = false;
             // Destroy(collision.gameObject);
