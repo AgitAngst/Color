@@ -97,8 +97,21 @@ public class Player : MonoBehaviour {
             currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)], new Vector2(transform.position.x, transform.position.y + distance), Quaternion.identity);
             obstacleCount++;
             Debug.Log(currentObstacle);
+
             rotm = GameObject.Find(currentObstacle.name).GetComponent<rotation>();
-            rotm.randomRotate = Random.Range(0, 1);//передаем рандом в rotation.cs
+            int randomRotation = Random.Range(0, 2);//передаем рандом в rotation.cs
+            switch (randomRotation)
+            {
+                case 0:
+                    rotm.rotateRight = true;
+                    break;
+                case 1:
+                    rotm.rotateRight = false;
+                    break;
+                default:
+                    break;
+            }
+            
                                                    //currentObstacle.AddComponent<rotation>();
             return;
         }
