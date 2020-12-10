@@ -47,6 +47,8 @@ public class Player : MonoBehaviour {
         if (Input.GetButton("Jump") || Input.GetMouseButtonDown(0))
         {
             Circle.velocity = Vector2.up * jumpForce;
+            
+
         }
 
         if (Input.touchCount == 1)
@@ -79,7 +81,8 @@ public class Player : MonoBehaviour {
             Scores(5);
             scoreText.text = "Score: " + score.ToString();
             audioSource.PlayOneShot(sound, 1f);
-            transform.DOScale(3f, .1f).SetEase(Ease.InOutBounce).SetLoops(2, LoopType.Yoyo);
+            transform.DOShakeScale(0.8f, 1, 10, 90, true);
+            transform.DOScaleX(2f,0.001f);
             Destroy(collision.gameObject);
 
             return;
