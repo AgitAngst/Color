@@ -200,6 +200,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "dev.shapes.colliders": {
+      "version": "https://github.com/RealityStop/ShapesColliders.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1f5316ec469e6dd764a916a6f30e525bc57c59a7"
+    },
     "nuget.mono-cecil": {
       "version": "0.1.6-preview",
       "depth": 1,
