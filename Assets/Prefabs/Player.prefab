@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8791942186820464847}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,14 @@ MonoBehaviour:
   floatingScoreText: {fileID: 0}
   maxScoreText: {fileID: 0}
   obstacle:
+  - {fileID: 1972640191689866, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
+  - {fileID: 8776689249490591978, guid: da7868a23b5360b4282e49dc090484f5, type: 3}
   - {fileID: 3782117990287471494, guid: 3f26ce2cd5c58ca42b282ff7e59a954d, type: 3}
+  - {fileID: 5767987332337267141, guid: 6b56c75fd1b791943bb45e40ed3d70b5, type: 3}
+  - {fileID: 5767987332337267141, guid: 858b206bcb6ba2a4da40710b063b0718, type: 3}
+  - {fileID: 5383447739074954007, guid: 7f11b61b8d72e8943978350ddbdefa30, type: 3}
   currentObstacle: {fileID: 0}
+  spawnColoChangerConstantly: 0
   colorChanger: {fileID: 1813136382543754, guid: 77ac2b551e5d2c04da1a5c7a596195d7, type: 3}
   distance: 10
   sound: {fileID: 8300000, guid: 4112e476b81a26a4090beebd4981055b, type: 3}
