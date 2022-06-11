@@ -90,27 +90,31 @@ public class Player : MonoBehaviour {
             scoreText.text = "Score: " + score.ToString();
             audioSource.PlayOneShot(sound, 1f);
           
+            SetRandomColor();
 
-            
             
             Destroy(collision.gameObject);
 
             
 
 
-            rotm = GameObject.Find(currentObstacle.name).GetComponent<rotation>();
+            rotm = GameObject.Find(currentObstacle.name).GetComponentInChildren<rotation>();
             int randomRotation = Random.Range(0, 2);//передаем рандом в rotation.cs
-            switch (randomRotation)
+            if (rotm.enableRandomRotation)
             {
-                case 0:
-                    rotm.rotateRight = true;
-                    break;
-                case 1:
-                    rotm.rotateRight = false;
-                    break;
-                default:
-                    break;
+                switch (randomRotation)
+                {
+                    case 0:
+                        rotm.rotateRight = true;
+                        break;
+                    case 1:
+                        rotm.rotateRight = false;
+                        break;
+                    default:
+                        break;
+                }
             }
+            
 
             //currentObstacle.AddComponent<rotation>();
             return;
