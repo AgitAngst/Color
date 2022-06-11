@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using Shapes;
 using DG.Tweening;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : MonoBehaviour {
     public string currentColor;
@@ -24,7 +25,8 @@ public class Player : MonoBehaviour {
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject currentObstacle;
     GameObject previousObstacle;
-
+    public bool spawnObstaclesConstantly;
+    public bool spawnColoChangerConstantly;
     [SerializeField] GameObject colorChanger;
     [SerializeField] float distance = 4f;
     private rotation rotm;
@@ -75,18 +77,24 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.tag == "ColorChange")
         {
-            Scores(5);
-
-            currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)],
-                new Vector2(transform.position.x, transform.position.y + distance),
-                Quaternion.identity);
-
-            Instantiate(colorChanger, new Vector2(transform.position.x, 
-                                  currentObstacle.transform.position.y),
-                                                  transform.rotation);
+           // Scores(5);
+           if (spawnObstaclesConstantly)
+           {
+               currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)],
+                   new Vector2(transform.position.x, transform.position.y + distance),
+                   Quaternion.identity);
+           }
             
+            if (spawnColoChangerConstantly)
+            {
+                Instantiate(colorChanger, new Vector2(transform.position.x, 
+                        currentObstacle.transform.position.y),
+                    transform.rotation);
+            }
+
             scoreText.text = "Score: " + score.ToString();
             audioSource.PlayOneShot(sound, 1f);
           
@@ -119,9 +127,9 @@ public class Player : MonoBehaviour {
             //currentObstacle.AddComponent<rotation>();
             return;
         }
-        if (collision.tag == "Score")
+        if (collision.tag == "Obstacle")
         {
-             Scores(1);
+             //Scores(1);
             collision.GetComponent<CircleCollider2D>().enabled = false;
             isInsideObstacke = true;
             previousObstacle = collision.gameObject;
@@ -130,9 +138,14 @@ public class Player : MonoBehaviour {
  
 
         }
-        else
 
-        if (collision.tag != currentColor)
+        if (collision.tag == "Score")
+        {
+          Scores(1);
+             Destroy(collision.gameObject);
+        }
+
+        else if (collision.CompareTag(currentColor) == false) 
         {
             Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //загружаем и создаем индекс. Нужно подключить using UnityEngine.SceneManagement;
@@ -140,6 +153,8 @@ public class Player : MonoBehaviour {
             maxScore = SaveLoad.currentScore;
             maxScoreText.text = "Record: " + maxScore.ToString();
         }
+
+
 
 
     }
