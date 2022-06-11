@@ -12,8 +12,9 @@ public class GameData
     public int diamonds;
     public float musicVolume;
     public float soundVolume;
+    public float topHeight;
 
-    public GameData(int scoreInt, int diamondsInt, float timePlayedF , int totalScoreInt, float musicF, float soundF)
+    public GameData(int scoreInt, int diamondsInt, float timePlayedF , int totalScoreInt, float musicF, float soundF, float topHeightF)
     {
         score = scoreInt;
         diamonds = diamondsInt;
@@ -21,5 +22,6 @@ public class GameData
         totalScore = totalScoreInt;
         musicVolume = musicF;
         soundVolume = soundF;
-}
+        topHeight = topHeightF;
+    }
 }

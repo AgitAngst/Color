@@ -8,8 +8,12 @@ using Shapes;
 using DG.Tweening;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+    public bool doNotReloadScene;
     public string currentColor;
+    public GameObject topPrefab;
+    private float topHeightReached;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D Circle;
     [SerializeField] Disc playerColor;
@@ -42,17 +46,29 @@ public class Player : MonoBehaviour {
         Load();
         maxScore = SaveLoad.currentScore;
         maxScoreText.text = "Record: " + maxScore.ToString();
+        topPrefab.transform.position = new Vector3(-6, SaveLoad.topHeight, 0); 
         SetRandomColor();
+        
+        Debug.Log("Высота:" +  SaveLoad.topHeight);
 
     }
 
-    void Update() {
+    void Update()
+    {
+        PlayerControl();
+    }
 
+    private void PlayerControl()
+    {
         if (Input.GetButton("Jump") || Input.GetMouseButtonDown(0))
         {
             Circle.velocity = Vector2.up * jumpForce;
-            
 
+            if (topHeightReached <= gameObject.transform.position.y)
+            {
+                topHeightReached = gameObject.transform.position.y;
+
+            }
         }
 
         if (Input.touchCount == 1)
@@ -150,10 +166,14 @@ public class Player : MonoBehaviour {
         else if (collision.CompareTag(currentColor) == false) 
         {
             Save();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //загружаем и создаем индекс. Нужно подключить using UnityEngine.SceneManagement;
-            Scores(-score);
-            maxScore = SaveLoad.currentScore;
-            maxScoreText.text = "Record: " + maxScore.ToString();
+            if (!doNotReloadScene)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //загружаем и создаем индекс. Нужно подключить using UnityEngine.SceneManagement;
+                Scores(-score);
+                maxScore = SaveLoad.currentScore;
+                maxScoreText.text = "Record: " + maxScore.ToString();
+            }
+            
         }
 
 
@@ -256,6 +276,7 @@ public class Player : MonoBehaviour {
         SaveLoad.currentScore = maxScore;
         SaveLoad.currentTimePlayed += Time.time;
         SaveLoad.totalScore += score;
+        SaveLoad.topHeight = topHeightReached;
         //SaveLoad.currentMusicVolume =;
         //SaveLoad.currentSoundVolume =;
         SaveLoad.SaveFile();
