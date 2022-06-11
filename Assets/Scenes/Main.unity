@@ -376,7 +376,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.28831434, g: 0.28992373, b: 0.2924528, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.19215687, b: 0.2, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1186,7 +1186,7 @@ PrefabInstance:
       objectReference: {fileID: 8776689249490591978, guid: da7868a23b5360b4282e49dc090484f5, type: 3}
     - target: {fileID: 106859169251626513, guid: 6709cfa8cbff4dd4bb3252dfd1780adc, type: 3}
       propertyPath: spawnObstaclesConstantly
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 106859169251626513, guid: 6709cfa8cbff4dd4bb3252dfd1780adc, type: 3}
       propertyPath: spawnColoChangerConstantly

@@ -86,6 +86,23 @@ public class Player : MonoBehaviour {
                currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)],
                    new Vector2(transform.position.x, transform.position.y + distance),
                    Quaternion.identity);
+               
+               rotm = currentObstacle.GetComponentInChildren<rotation>();
+               int randomRotation = Random.Range(0, 2);//передаем рандом в rotation.cs
+               if (rotm.enableRandomRotation)
+               {
+                   switch (randomRotation)
+                   {
+                       case 0:
+                           rotm.rotateRight = true;
+                           break;
+                       case 1:
+                           rotm.rotateRight = false;
+                           break;
+                       default:
+                           break;
+                   }
+               }
            }
             
             if (spawnColoChangerConstantly)
@@ -106,22 +123,7 @@ public class Player : MonoBehaviour {
             
 
 
-            rotm = GameObject.Find(currentObstacle.name).GetComponentInChildren<rotation>();
-            int randomRotation = Random.Range(0, 2);//передаем рандом в rotation.cs
-            if (rotm.enableRandomRotation)
-            {
-                switch (randomRotation)
-                {
-                    case 0:
-                        rotm.rotateRight = true;
-                        break;
-                    case 1:
-                        rotm.rotateRight = false;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            
             
 
             //currentObstacle.AddComponent<rotation>();
