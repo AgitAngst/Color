@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6580109877103172876}
   - component: {fileID: 8791942186820464847}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,13 +63,7 @@ MonoBehaviour:
   floatingScoreText: {fileID: 0}
   maxScoreText: {fileID: 0}
   obstacle:
-  - {fileID: 1712976276364342, guid: 4544eb79ea045964cb19f0524c11d7ce, type: 3}
-  - {fileID: 1231410177773150, guid: 5f32969e2d475e34080a19111962ca17, type: 3}
-  - {fileID: 1972640191689866, guid: 7d79a684d6f961643bf47d4d425ae2b0, type: 3}
-  - {fileID: 1142028789559980, guid: 3a5741025e91289488d8ba0d5c7b3f42, type: 3}
-  - {fileID: 1686044762445650, guid: 76594124f1837054a933b84fa24ffe64, type: 3}
-  - {fileID: 1572647741026446, guid: 10cf13320a3cb1f43a87c70c90aff248, type: 3}
-  - {fileID: 1413879281741858, guid: 33ff9c6d954fee043b6266954c3a2943, type: 3}
+  - {fileID: 3782117990287471494, guid: 3f26ce2cd5c58ca42b282ff7e59a954d, type: 3}
   currentObstacle: {fileID: 0}
   colorChanger: {fileID: 1813136382543754, guid: 77ac2b551e5d2c04da1a5c7a596195d7, type: 3}
   distance: 10
