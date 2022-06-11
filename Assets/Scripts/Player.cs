@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
         Load();
         maxScore = SaveLoad.currentScore;
         maxScoreText.text = "Record: " + maxScore.ToString();
-        //SetRandomColor();
+        SetRandomColor();
 
     }
 

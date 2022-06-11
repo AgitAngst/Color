@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Shapes;
 
-public class RandomColorObstacles : MonoBehaviour {
-    
+public class RandomColorObstacles : MonoBehaviour
+{
+
     public bool enableRandomColors = false;
-    public Disc[] elementColors;
+    public Disc[] discElementColors;
+    public Line[] lineElementColors;
+
     private Player player;
     Color[] colors = new Color[4];
 
-    void Start () {
+    void Start()
+    {
         player = GameObject.Find("Player").GetComponent<Player>();
 
         colors[0] = player.blue;
@@ -18,46 +22,84 @@ public class RandomColorObstacles : MonoBehaviour {
         colors[2] = player.pink;
         colors[3] = player.purple;
         setRandomColor();
+
     }
 
     public void setRandomColor()
     {
         if (enableRandomColors)
         {
-
-            foreach (Disc colors in elementColors)
+            if (discElementColors != null)
             {
-                int rnd = Random.Range(0, this.colors.Length);
-
-                colors.Color = this.colors[rnd];
-
-                switch (rnd)
+                foreach (Disc colors in discElementColors)
                 {
-                    case 0:
-                        colors.tag = "Blue";
-                        player.SetColor(0);
-                        break;
-                    case 1:
-                        colors.tag = "Yellow";
-                        player.SetColor(1);
+                    int rnd = Random.Range(0, this.colors.Length);
 
-                        break;
-                    case 2:
-                        colors.tag = "Pink";
-                        player.SetColor(2);
+                    colors.Color = this.colors[rnd];
 
-                        break;
-                    case 3:
-                        colors.tag = "Purple";
-                        player.SetColor(3);
+                    switch (rnd)
+                    {
+                        case 0:
+                            colors.tag = "Blue";
+                            player.SetColor(0);
+                            break;
+                        case 1:
+                            colors.tag = "Yellow";
+                            player.SetColor(1);
 
-                        break;
+                            break;
+                        case 2:
+                            colors.tag = "Pink";
+                            player.SetColor(2);
+
+                            break;
+                        case 3:
+                            colors.tag = "Purple";
+                            player.SetColor(3);
+
+                            break;
+                    }
+
                 }
+
+                if (lineElementColors != null)
+                {
+                    foreach (Line colors in lineElementColors)
+                    {
+                        int rnd = Random.Range(0, this.colors.Length);
+
+                        colors.Color = this.colors[rnd];
+
+                        switch (rnd)
+                        {
+                            case 0:
+                                colors.tag = "Blue";
+                                player.SetColor(0);
+                                break;
+                            case 1:
+                                colors.tag = "Yellow";
+                                player.SetColor(1);
+
+                                break;
+                            case 2:
+                                colors.tag = "Pink";
+                                player.SetColor(2);
+
+                                break;
+                            case 3:
+                                colors.tag = "Purple";
+                                player.SetColor(3);
+
+                                break;
+                        }
+
+                    }
+                }
+
+
+
+
             }
         }
-        
-
-
-
     }
-    }
+}
