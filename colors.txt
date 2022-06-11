@@ -1,0 +1,3 @@
+HEX;color1#8c13fb;color2#ff0080;color3#f6df0e;color4#35e2f2
+RGB;color1(140, 19, 251);color2(255, 0, 128);color3(246, 223, 14);color4(53, 226, 242)
+HSL;color1(271, 97%, 53%);color2(330, 100%, 50%);color3(54, 93%, 51%);color4(185, 88%, 58%)
