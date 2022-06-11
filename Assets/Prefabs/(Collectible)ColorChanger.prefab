@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4611023495785514}
   - component: {fileID: 58088898606089938}
   m_Layer: 0
-  m_Name: ColorChanger
+  m_Name: (Collectible)ColorChanger
   m_TagString: ColorChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
