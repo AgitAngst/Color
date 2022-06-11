@@ -70,6 +70,7 @@ MonoBehaviour:
   - {fileID: 5767987332337267141, guid: 858b206bcb6ba2a4da40710b063b0718, type: 3}
   - {fileID: 5383447739074954007, guid: 7f11b61b8d72e8943978350ddbdefa30, type: 3}
   currentObstacle: {fileID: 0}
+  spawnObstaclesConstantly: 0
   spawnColoChangerConstantly: 0
   colorChanger: {fileID: 1813136382543754, guid: 77ac2b551e5d2c04da1a5c7a596195d7, type: 3}
   distance: 10
@@ -293,7 +294,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2009962591
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
