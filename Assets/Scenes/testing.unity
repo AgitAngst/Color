@@ -167,6 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114731476399343336, guid: d3c3b0af79dcc53459cd02ec5cca5f3f, type: 3}
+      propertyPath: obstacle.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731476399343336, guid: d3c3b0af79dcc53459cd02ec5cca5f3f, type: 3}
+      propertyPath: obstacle.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3c3b0af79dcc53459cd02ec5cca5f3f, type: 3}
 --- !u!1001 &1043662210
