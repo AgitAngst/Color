@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class rotation : MonoBehaviour {
 
-    [SerializeField] float rotationSpeed = 100f;
-    public float randomRotate = 1;
-    [SerializeField] float rotateTimer = 3f;
-    [SerializeField] float period = 2f;
+    [Range(0,1000)][SerializeField] float rotationSpeed = 100f;
+    public bool rotateRight = true;
+    public bool enableRandomRotation = false;
     
-	void Update () {
+    float period = 2f;
+
+    private void Start()
+    {
+       
+    }
+
+    void Update () {
 
         if (Input.GetMouseButtonDown(0))
         {
            // randomRotate = Random.Range(-2, 2);
         }
-        setRandomRotation();
+        Rotation();
     }
 
-    void setRandomRotation()
+    void Rotation()
     {
-        rotateTimer -= Time.deltaTime;
 
-        switch ((int)randomRotate)
+        switch (rotateRight)
         {
-            case 0:
-                transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+            case true:
+                transform.Rotate(0f, 0f, -rotationSpeed * Time.deltaTime);
                 break;
-            case 1:
-                transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+            case false:
+                transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
                 break;
             default:
                 transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
@@ -36,17 +41,18 @@ public class rotation : MonoBehaviour {
 
         }
 
-       Debug.Log(randomRotate);
     }
-
+   
     void ChangeRotation()
     {
-        if (period <= Mathf.Epsilon) return;
 
-        float cycles = Time.time / period; //grows continuly
-        const float tau = Mathf.PI * 2f;
-        float rawSineWave = Mathf.Sin(cycles * tau);
+            if (period <= Mathf.Epsilon) return;
 
-        transform.Rotate(0,0,rawSineWave / 2f + 0.5f);
+            float cycles = Time.time / period; //grows continuly
+            const float tau = Mathf.PI * 2f;
+            float rawSineWave = Mathf.Sin(cycles * tau);
+
+            transform.Rotate(0,0,rawSineWave / 2f + 0.5f);
+
     }
 }

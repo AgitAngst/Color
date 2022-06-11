@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Score
   - Blue
+  - Purple
   - Yellow
   - Pink
-  - Purple
   - ColorChange
-  - Score
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Changer
-    uniqueID: 3891738249
+  - name: 1
+    uniqueID: 1754420721
+    locked: 0
+  - name: 2
+    uniqueID: 3840847593
     locked: 0

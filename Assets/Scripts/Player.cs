@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using Shapes;
+using DG.Tweening;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : MonoBehaviour {
-    [SerializeField] string currentColor;
+    public string currentColor;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] Rigidbody2D Circle;
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] Disc playerColor;
     public Color blue;
     public Color yellow;
     public Color pink;
@@ -21,6 +24,9 @@ public class Player : MonoBehaviour {
     [SerializeField] Text maxScoreText;
     [SerializeField] GameObject[] obstacle;
     [SerializeField] GameObject currentObstacle;
+    GameObject previousObstacle;
+    public bool spawnObstaclesConstantly;
+    public bool spawnColoChangerConstantly;
     [SerializeField] GameObject colorChanger;
     [SerializeField] float distance = 4f;
     private rotation rotm;
@@ -28,15 +34,15 @@ public class Player : MonoBehaviour {
     public AudioClip sound;
     private AudioSource audioSource;
     private Touch touch;
+    bool isInsideObstacke = false;
 
     void Start() {
-        setRandomColor();
         audioSource = GetComponent<AudioSource>();
-        Camera.audioMusic.volume = SaveLoad.currentMusicVolume;
+        //Camera.audioMusic.volume = SaveLoad.currentMusicVolume;   #TODO SAVE MUSIC VOLUME
         Load();
         maxScore = SaveLoad.currentScore;
         maxScoreText.text = "Record: " + maxScore.ToString();
-
+        SetRandomColor();
 
     }
 
@@ -45,6 +51,8 @@ public class Player : MonoBehaviour {
         if (Input.GetButton("Jump") || Input.GetMouseButtonDown(0))
         {
             Circle.velocity = Vector2.up * jumpForce;
+            
+
         }
 
         if (Input.touchCount == 1)
@@ -69,36 +77,77 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.tag == "ColorChange")
         {
-            setRandomColor();
-            Instantiate(colorChanger, new Vector2(transform.position.x, currentObstacle.transform.position.y), transform.rotation);
-            //Destroy(colorChanger.gameObject);
-            Scores(5);
+           // Scores(5);
+           if (spawnObstaclesConstantly)
+           {
+               currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)],
+                   new Vector2(transform.position.x, transform.position.y + distance),
+                   Quaternion.identity);
+               
+               rotm = currentObstacle.GetComponentInChildren<rotation>();
+               int randomRotation = Random.Range(0, 2);//передаем рандом в rotation.cs
+               if (rotm.enableRandomRotation)
+               {
+                   switch (randomRotation)
+                   {
+                       case 0:
+                           rotm.rotateRight = true;
+                           break;
+                       case 1:
+                           rotm.rotateRight = false;
+                           break;
+                       default:
+                           break;
+                   }
+               }
+           }
+            
+            if (spawnColoChangerConstantly)
+            {
+                Instantiate(colorChanger, new Vector2(transform.position.x, 
+                        currentObstacle.transform.position.y),
+                    transform.rotation);
+            }
+
             scoreText.text = "Score: " + score.ToString();
             audioSource.PlayOneShot(sound, 1f);
+          
+            SetRandomColor();
 
+            
             Destroy(collision.gameObject);
 
+            
+
+
+            
+            
+
+            //currentObstacle.AddComponent<rotation>();
             return;
         }
+        if (collision.tag == "Obstacle")
+        {
+             //Scores(1);
+            collision.GetComponent<CircleCollider2D>().enabled = false;
+            isInsideObstacke = true;
+            previousObstacle = collision.gameObject;
+            obstacleCount++;
+            previousObstacle.transform.DOShakeScale(.3f, .25f, 10, 90, true);
+ 
+
+        }
+
         if (collision.tag == "Score")
         {
-            Scores(1);
-
-
-            collision.GetComponent<CircleCollider2D>().enabled = false;
-            // Destroy(collision.gameObject);
-            currentObstacle = Instantiate(obstacle[Random.Range(0, obstacle.Length)], new Vector2(transform.position.x, transform.position.y + distance), Quaternion.identity);
-            obstacleCount++;
-            Debug.Log(currentObstacle);
-            rotm = GameObject.Find(currentObstacle.name).GetComponent<rotation>();
-            rotm.randomRotate = Random.Range(0, 1);//передаем рандом в rotation.cs
-                                                   //currentObstacle.AddComponent<rotation>();
-            return;
+          Scores(1);
+             Destroy(collision.gameObject);
         }
 
-        if (collision.tag != currentColor)
+        else if (collision.CompareTag(currentColor) == false) 
         {
             Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //загружаем и создаем индекс. Нужно подключить using UnityEngine.SceneManagement;
@@ -108,33 +157,60 @@ public class Player : MonoBehaviour {
         }
 
 
+
+
     }
 
+    public void SetColor(int color)
+    {
+        //int rand = Random.Range(0, 4);
 
-    void setRandomColor()
+        switch (color)
+        {
+            case 0:
+                currentColor = "Blue";
+                playerColor.Color = blue;
+                break;
+            case 1:
+                currentColor = "Yellow";
+                playerColor.Color = yellow;
+                break;
+            case 2:
+                currentColor = "Pink";
+                playerColor.Color = pink;
+                break;
+            case 3:
+                currentColor = "Purple";
+                playerColor.Color = purple;
+                break;
+        }
+
+
+    }
+
+    public void SetRandomColor()
     {
         int rand = Random.Range(0, 4);
         switch (rand)
         {
             case 0:
                 currentColor = "Blue";
-                sr.color = blue;
+                playerColor.Color = blue;
                 break;
             case 1:
                 currentColor = "Yellow";
-                sr.color = yellow;
+                playerColor.Color = yellow;
                 break;
             case 2:
                 currentColor = "Pink";
-                sr.color = pink;
+                playerColor.Color = pink;
                 break;
             case 3:
                 currentColor = "Purple";
-                sr.color = purple;
+                playerColor.Color = purple;
                 break;
         }
-
-
+        
     }
 
     public void Scores(int i)
