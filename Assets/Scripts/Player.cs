@@ -145,23 +145,25 @@ public class Player : MonoBehaviour
             //currentObstacle.AddComponent<rotation>();
             return;
         }
-        if (collision.tag == "Obstacle")
+        /*if (collision.tag == "Obstacle")
         {
              //Scores(1);
             collision.GetComponent<CircleCollider2D>().enabled = false;
             isInsideObstacke = true;
             previousObstacle = collision.gameObject;
             obstacleCount++;
-            previousObstacle.transform.DOShakeScale(.3f, .25f, 10, 90, true);
+            Debug.Log(collision.name);
+            //collision.transform.DOShakeScale(.3f, .25f, 10, 50, true);
  
 
-        }
-
+        }*/
+        
         if (collision.tag == "Score")
         {
           Scores(1);
              Destroy(collision.gameObject);
         }
+
 
         else if (collision.CompareTag(currentColor) == false) 
         {
@@ -175,8 +177,16 @@ public class Player : MonoBehaviour
             }
             
         }
+        if (collision.tag == currentColor)
+        {
+            PlaySound(collision.gameObject);
+            collision.GetComponentInParent<rotation>().transform.
+                DOShakeScale(.1f, .05f, 0, 100, false);
 
+            //collision.transform.DOShakeScale(.3f, .10f, 5, 50, true); - shake only right color
+        }
 
+        
 
 
     }
@@ -247,11 +257,11 @@ public class Player : MonoBehaviour
         maxScoreText.text = "Record: " + maxScore.ToString();
     }
 
-    void chanceToSpawn()
+    void PlaySound(GameObject target)
     {
-
+        var audioSource = target.GetComponentInParent<AudioSource>();
+        audioSource.PlayOneShot(audioSource.clip);
     }
-
     void FindDuplicates()
     {
 

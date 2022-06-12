@@ -11,6 +11,7 @@ TagManager:
   - Pink
   - ColorChange
   - Obstacle
+  - Start
   layers:
   - Default
   - TransparentFX
