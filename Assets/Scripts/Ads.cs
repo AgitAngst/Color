@@ -20,11 +20,11 @@ public class Ads : MonoBehaviour {
 
     public void ShowAD()
     {
-        if (Advertisement.IsReady())
-        {
-            Advertisement.Show("rewardedVideo", new ShowOptions()
-            { resultCallback = HandleResult});
-        }
+        // if (Advertisement.IsReady())
+        // {
+        //     Advertisement.Show("rewardedVideo", new ShowOptions()
+        //     { resultCallback = HandleResult});
+        // }
     }
 
     public void HandleResult(ShowResult result)
