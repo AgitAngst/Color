@@ -49,9 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b006d417be14e24d88cf295cf32f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameActive: 0
+  isCanControl: 1
+  doNotReloadScene: 0
   currentColor: 
+  topPrefab: {fileID: 0}
   jumpForce: 6.5
-  Circle: {fileID: 106859169251626517}
+  circle: {fileID: 106859169251626517}
   playerColor: {fileID: 959550534318416248}
   blue: {r: 0.20784315, g: 0.8862746, b: 0.9490197, a: 1}
   yellow: {r: 0.96470594, g: 0.8745099, b: 0.054901965, a: 1}
@@ -62,18 +66,15 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   floatingScoreText: {fileID: 0}
   maxScoreText: {fileID: 0}
+  finishUI: {fileID: 0}
   obstacle:
-  - {fileID: 1972640191689866, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
+  - {fileID: 8776689249490591978, guid: 8e22dcf3dd3b11a4c8a76457c0f0ff9c, type: 3}
   - {fileID: 8776689249490591978, guid: da7868a23b5360b4282e49dc090484f5, type: 3}
-  - {fileID: 3782117990287471494, guid: 3f26ce2cd5c58ca42b282ff7e59a954d, type: 3}
-  - {fileID: 5767987332337267141, guid: 6b56c75fd1b791943bb45e40ed3d70b5, type: 3}
-  - {fileID: 5767987332337267141, guid: 858b206bcb6ba2a4da40710b063b0718, type: 3}
-  - {fileID: 5383447739074954007, guid: 7f11b61b8d72e8943978350ddbdefa30, type: 3}
   currentObstacle: {fileID: 0}
   spawnObstaclesConstantly: 0
   spawnColoChangerConstantly: 0
   colorChanger: {fileID: 1813136382543754, guid: 77ac2b551e5d2c04da1a5c7a596195d7, type: 3}
-  distance: 10
+  distance: 5
   sound: {fileID: 8300000, guid: 4112e476b81a26a4090beebd4981055b, type: 3}
 --- !u!50 &106859169251626517
 Rigidbody2D:

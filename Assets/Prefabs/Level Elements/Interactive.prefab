@@ -1475,7 +1475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4114179187100431667}
-  - component: {fileID: 8475279307048100754}
+  - component: {fileID: 152804107066941099}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Finish
@@ -1503,7 +1503,7 @@ Transform:
   m_Father: {fileID: 2693146774814154506}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8475279307048100754
+--- !u!61 &152804107066941099
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1513,10 +1513,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.0248604, y: -0.12499642}
+  m_Offset: {x: 5.0248604, y: -0.18849921}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1527,5 +1527,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.066416, y: 0.41668367}
+  m_Size: {x: 10.066416, y: 0.54368925}
   m_EdgeRadius: 0
