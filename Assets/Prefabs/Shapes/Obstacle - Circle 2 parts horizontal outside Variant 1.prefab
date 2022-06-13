@@ -855,7 +855,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1972640191689866, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
       propertyPath: m_Name
-      value: Obstacle - Circle 2 parts horizontal outside Variant
+      value: Obstacle - Circle 2 parts horizontal outside Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 4107469383060666, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
       propertyPath: m_RootOrder
@@ -908,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 1079924369102992983, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079924369102992983, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 1737304881673283633, guid: 2a69e1dde464c2045988ae5438ee6115, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size

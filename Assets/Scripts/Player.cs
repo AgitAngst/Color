@@ -54,16 +54,20 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    {
+    {      
+        
         PlayerControl();
+
     }
 
     private void PlayerControl()
     {
+
+ 
         if (Input.GetButton("Jump") || Input.GetMouseButtonDown(0))
         {
-            Circle.velocity = Vector2.up * jumpForce;
 
+            Circle.velocity = Vector2.up * jumpForce;
             if (topHeightReached <= gameObject.transform.position.y)
             {
                 topHeightReached = gameObject.transform.position.y;
